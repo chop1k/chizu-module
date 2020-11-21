@@ -1,0 +1,25 @@
+{
+  "name": "chizu/module",
+  "type": "library",
+  "description": "Package for creating and loading modules",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "chop1k",
+      "email": "fakeshopendesu@gmail.com",
+      "role": "developer"
+    }
+  ],
+  "require": {
+    "php": "^7.4",
+    "chizu/event": "dev-master",
+    "chizu/di": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Chizu\\Module\\": "src/"
+    }
+  }
+}
