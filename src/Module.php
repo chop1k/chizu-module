@@ -5,10 +5,28 @@ namespace Chizu\Module;
 use Chizu\DI\Container;
 use Chizu\Event\Dispatcher;
 
-abstract class Module
+class Module
 {
-    public abstract function getDispatcher(): Dispatcher;
-    public abstract function getContainer(): Container;
-    public abstract function preload(Container $container): void;
-    public abstract function load(): void;
+    public const InitiationEvent = 'Initiation';
+
+    protected Dispatcher $dispatcher;
+
+    public function getDispatcher(): Dispatcher
+    {
+        return $this->dispatcher;
+    }
+
+    protected Container $container;
+
+    public function getContainer(): Container
+    {
+        return $this->container;
+    }
+
+    public function __construct()
+    {
+        $this->dispatcher = new Dispatcher();
+
+        $this->container = new Container();
+    }
 }
