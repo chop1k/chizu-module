@@ -7,7 +7,7 @@ use Chizu\Event\Dispatcher;
 
 class Module
 {
-    public const InitiationEvent = 'Initiation';
+    public const InitiationEvent = 'module.initiation';
 
     protected Dispatcher $dispatcher;
 
@@ -21,6 +21,16 @@ class Module
     public function getContainer(): Container
     {
         return $this->container;
+    }
+
+    protected bool $loaded;
+
+    /**
+     * @return bool
+     */
+    public function isLoaded(): bool
+    {
+        return $this->loaded;
     }
 
     public function __construct()
