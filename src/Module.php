@@ -23,14 +23,19 @@ class Module
         return $this->container;
     }
 
-    protected bool $loaded;
+    private bool $initiated;
 
     /**
      * @return bool
      */
-    public function isLoaded(): bool
+    public function isInitiated(): bool
     {
-        return $this->loaded;
+        return $this->initiated;
+    }
+
+    public function setInitiated(bool $initiated): void
+    {
+        $this->initiated = $initiated;
     }
 
     public function __construct()
