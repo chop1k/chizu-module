@@ -53,5 +53,6 @@ class Module
         $this->dispatcher = new Dispatcher();
         $this->container = new Container();
         $this->modules = new Modules();
+        $this->initiated = false;
     }
 }
