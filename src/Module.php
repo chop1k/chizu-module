@@ -38,10 +38,20 @@ class Module
         $this->initiated = $initiated;
     }
 
+    protected Modules $modules;
+
+    /**
+     * @return Modules
+     */
+    public function getModules(): Modules
+    {
+        return $this->modules;
+    }
+
     public function __construct()
     {
         $this->dispatcher = new Dispatcher();
-
         $this->container = new Container();
+        $this->modules = new Modules();
     }
 }
