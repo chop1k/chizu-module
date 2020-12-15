@@ -3,17 +3,17 @@
 namespace Chizu\Module;
 
 use Chizu\DI\Container;
-use Chizu\Event\Dispatcher;
+use Chizu\Event\Events;
 
 class Module
 {
     public const InitiationEvent = 'module.initiation';
 
-    protected Dispatcher $dispatcher;
+    protected Events $events;
 
-    public function getDispatcher(): Dispatcher
+    public function getEvents(): Events
     {
-        return $this->dispatcher;
+        return $this->events;
     }
 
     protected Container $container;
@@ -50,7 +50,7 @@ class Module
 
     public function __construct()
     {
-        $this->dispatcher = new Dispatcher();
+        $this->events = new Events();
         $this->container = new Container();
         $this->modules = new Modules();
         $this->initiated = false;
