@@ -4,6 +4,7 @@ namespace Chizu\Module;
 
 use Chizu\DI\Container;
 use Chizu\Event\Events;
+use Ds\Map;
 
 class Module
 {
@@ -38,21 +39,21 @@ class Module
         $this->initiated = $initiated;
     }
 
-    protected Modules $modules;
+    protected Map $modules;
 
     /**
-     * @return Modules
+     * @return Map
      */
-    public function getModules(): Modules
+    public function getModules(): Map
     {
         return $this->modules;
     }
 
-    public function __construct()
+    public function __construct(Events $events, Container $container, Map $modules)
     {
-        $this->events = new Events();
-        $this->container = new Container();
-        $this->modules = new Modules();
+        $this->events = $events;
+        $this->container = $container;
+        $this->modules = $modules;
         $this->initiated = false;
     }
 }
